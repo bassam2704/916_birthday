@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <html> <![endif]-->
+<!--[if !IE]><!--><html lang="en"><!-- <![endif]-->
+<head>
+	<title>Happy Birthday</title>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Happy Birthday">
+	<meta name="robots" content="index, follow" />
+	<link rel="author" href="https://plus.google.com/u/1/+SaptheshV/" /> 
+    <meta name="keywords" content="Birthday, Happy">
+    <!-- Strat of Facebook Meta -->
+    <meta property="og:type" content="E-Greeting" />
+    <meta property="og:image" content="favicon.ico" />
+    <meta property="og:description" content="Wish you a very Happy Birthday">
+    <!-- End of Facebook Meta Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="loading.css">
+	<link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'> -->
+	<link rel="stylesheet/less" href="cake.less">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.1.0/less.min.js"></script>
+</head>
+<style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Signika', sans-serif;
+    }
+    #login-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('drawing-closer-bg.png') no-repeat center center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      text-shadow: 1px 1px 2px #000;
+      z-index: 9999;
+    }
+    #login-overlay h2 {
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    #login-overlay input {
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: #000; /* <-- Make text/dots black */
+}
+    #login-overlay button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #f4b6c2;
+      color: #fff;
+      cursor: pointer;
+    }
+    #login-error {
+      color: #ff6b6b;
+      margin-top: 10px;
+      display: none;
+    }
+    #main-content {
+      display: none;
+    }
+  </style>
+<body>
+	<div id="countdown-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 9998; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;">
+		<h1>Hey Pasandida Aurat !</h1>
+		<h2>Finally , the most waited day !</h2>
+		<div id="countdown" style="font-size: 3em; margin: 20px;">
+			<span id="days"></span>d 
+			<span id="hours"></span>h 
+			<span id="minutes"></span>m 
+			<span id="seconds"></span>s
+		</div>
+	</div>
+	<div id="login-overlay">
+		<h2>Enter Password to Begin 🎁</h2>
+		<input type="password" id="password" placeholder="Enter password" style="padding:10px; font-size:16px; border-radius:5px;">
+		<br>
+		<button onclick="checkPassword()" class="btn btn-success">Unlock</button>
+		<p id="login-error" style="color: red; margin-top: 10px; display: none;">Incorrect password. Check the movie climax to get the password</p>
+	</div>
+	<div id="main-content">
+	<div class="loading"></div>
+	<audio class="song" controls loop>
+        <source src="hbd.mp3"></source>
+	   Your browser isn't invited for super fun audio time.
+    </audio>
+	<div id="balloons-container">
+		<div class="balloons text-center" id="b1">
+			<h2 style="color:#F2B300;">H</h2>
+		</div>
+		<div class="balloons text-center" id="b2">
+			<h2 style="color:#0719D4;">B</h2>
+		</div>
+		<div class="balloons text-center" id="b3">
+			<h2 style="color:#D14D39;">D</h2>
+		</div>
+		<div class="balloons text-center" id="b4">
+			<h2 style="color:#8FAD00;">P</h2>
+		</div>
+		<div class="balloons text-center" id="b5">
+			<h2 style="color:#8377E4;">A</h2>
+		</div>
+		<div class="balloons text-center" id="b6">
+			<h2 style="color:#99C96A;">R</h2>
+		</div>
+		<div class="balloons text-center" id="b7">
+			<h2 style="color:#20CFB4;">U</h2>
+		</div>
+	</div>
+    
+
+    <img src="Balloon-Border.png" width="100%" class="balloon-border">
+ 
+
+	<div class="container">
+		
+		<div class="row">
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_yellow"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_red"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_blue"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_green"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_pink"></div>
+			</div>
+			<div class="col-md-2 col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_orange"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<img src="banner.png" class="bannar">
+				<div id="after-banner-image" style="display: none; text-align: center; margin-top: 20px;">
+					<img src="special-memory.jpeg" style="height: 330px;" alt="Special Memory" style="max-width: 90%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+				</div>
+				<div id="video-container" style="display: none; text-align: center; margin-top: 20px;">
+					<video width="560" height="315" controls id="birthday-video" style="max-width: 90%; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+						<source src="your-video.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row cake-cover">
+			<div class="col-md-12 texr-center">
+				<div class="cake">
+				  <div class="velas">
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				    <div class="fuego"></div>
+				  </div>
+				  <div class="cobertura"></div>
+				  <div class="bizcocho"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row message">
+			<div class="col-md-12">
+				<p>Hey Champion , Chellipodi , Goldey , My Fav person</p>
+				<p>Its the day i had waited for so long this year</p>
+				<p>Yes , its your Birthday</p>
+				<p>You are turning 17 today ! OMGG !!!</p>
+				<p>In a blink of the eyes ... How fast night changes</p>
+				<p><strong>however</strong></p>
+				<p>today is just special</p>
+				<p>so special to you</p>
+				<p>that's why</p>
+				<p>Let's make it...</p>
+				<p>the best celebration ever</p>
+				<p>and let me share...</p>
+				<p>a piece of happiness to you</p>
+				<p>I made all this , as a birthday present to you</p>
+				<p>No matter what , you are my favourite person</p>
+				<p>Thanks for the all the beautiful memories we made</p>
+				<p>Even though it didn't last long . I like me better when i was with you</p>
+				<p>Don't forget about the promise you gave me</p>
+				<p>Be my champion , Show the world what you are capable of</p>
+				<p>May all your wishes come true</p>
+				<p>I'm extremeley sorry for all the pains you gone through</p>
+				<p>because of me</p>
+				<p>You are not meant to be hurted, You are meant to be loved da!</p>
+				<p>Fly higher champ</p>
+				<p>I'm here with you always, whether its in silence or in dark</p>
+				<p>Please be my stronger version of Old Paaru..</p>
+				<p>Speak without control, share your emotions and happiness</p>
+				<p>Coz , i dont want you to go through tough times alone</p>
+				<p>If I say I'm with you ... I mean it .. No matter what</p>
+				<p>Keep focused on your Goal</p>
+				<p>Dont let your guard down</p>
+				<p>Fly like a Butterfly , Sting like a Bee</p>
+				<p>You are the strongest girl I've came across</p>
+				<p>This year will be better and I hope</p>
+				<p>you'll find...happiness along the way</p>	
+				<p>keep your spirit up</p>
+				<p>enjoy every single moment...</p>
+				<p>that you experience today</p>
+				<p>Fill it with your most beautiful smile, and mukkuthi</p>
+				<p>and make it the best memory..</p>
+				<p>lastly...</p>
+				<p>I missed you alot .. and Happy birthday Da !</p>
+			</div>
+		</div>
+		<div id="message-popup" style="
+  display: none;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  background: #fff;
+  color: #333;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.6;
+">
+  <div id="popup-text"></div>
+  <div style="text-align: center; margin-top: 20px;">
+    <button id="close-popup" style="
+      padding: 10px 25px;
+      font-size: 1em;
+      background-color: #f4b6c2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    ">Continue 💖</button>
+  </div>
+</div>
+
+		<!-- <div class="row video-container" style="display: none; text-align: center; margin-top: 20px;">
+			<div class="col-md-12">
+				<video width="560" height="315" controls id="birthday-video">
+					<source src="your-video.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div> -->
+		<div class="navbar navbar-fixed-bottom">
+			<div class="row">
+				<div class="col-md-6 text-center col-md-offset-3">
+					<button class="btn btn-primary" id="turn_on">Turn On Lights</button>
+					<button class="btn btn-primary" id="play">Play Music</button>
+					<button class="btn btn-primary" id="bannar_coming">Let's Decorate</button>
+					<button class="btn btn-primary" id="balloons_flying">Fly With Balloons</button>
+					<button class="btn btn-primary" id="cake_fadein">Most Delicious Cake Ever</button>
+					<button class="btn btn-primary" id="light_candle"> Light Candle</button>
+					<button class="btn btn-primary" id="wish_message">Happy Birthday</button>
+					<button class="btn btn-primary" id="story">A mesage for you</button>
+					<!-- <button class="btn btn-primary" id="cake_cut">Lrt's Cut the Cake</button> -->
+				</div>
+			</div>
+			<!-- <div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div>
+			<div class="col-md-2">
+			</div> -->
+		</div>
+
+
+	</div>
+	</div>
+</body>
+<script>
+	// Set the target date and time (e.g., April 20, 2025 at 3:12 PM)
+	const targetDate = new Date('2025-04-20T16:15:00').getTime();
+  
+	function updateCountdown() {
+	  const now = new Date().getTime();
+	  const distance = targetDate - now;
+  
+	  if (distance <= 0) {
+		// Countdown over, show login and hide countdown
+		document.getElementById('countdown-overlay').style.display = 'none';
+		document.getElementById('login-overlay').style.display = 'flex';
+		return;
+	  }
+  
+	  // Calculate remaining time
+	  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+	  // Display countdown
+	  document.getElementById('days').textContent = days;
+	  document.getElementById('hours').textContent = hours;
+	  document.getElementById('minutes').textContent = minutes;
+	  document.getElementById('seconds').textContent = seconds;
+  
+	  // Schedule next update
+	  setTimeout(updateCountdown, 1000);
+	}
+  
+	// Initial logic on load
+	window.addEventListener('DOMContentLoaded', () => {
+	  const now = new Date().getTime();
+	  if (now >= targetDate) {
+		// If time has passed, skip countdown
+		document.getElementById('countdown-overlay').style.display = 'none';
+		document.getElementById('login-overlay').style.display = 'flex';
+	  } else {
+		// Otherwise, start countdown
+		updateCountdown();
+		document.getElementById('countdown-overlay').style.display = 'flex';
+		document.getElementById('login-overlay').style.display = 'none';
+	  }
+  
+	  // Always hide main content until password is entered
+	  document.getElementById('main-content').style.display = 'none';
+	});
+  </script>
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="effect.js"></script>
+<script>
+	function checkPassword() {
+    var input = document.getElementById('password').value;
+    if (input === '3gerberas'||input === '3Gerberas'||input === '3GERBERAS'||input ==='3Garberas'||input ==='3garberas'||input ==='3GARBERAS') {
+        document.getElementById('login-overlay').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+        var script = document.createElement('script');
+        script.src = 'effect.js';
+        document.body.appendChild(script);
+    } else {
+        document.getElementById('login-error').style.display = 'block';
+    }
+}
+</script>
+</html>
